@@ -51,89 +51,89 @@
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
         }
 
-        
 
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
 
-.animate-fade-in-left {
-    animation: fadeInLeft 1s ease;
-}
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-.custom-button {
-    color: #fff;
-    background-color: transparent;
-    border-color: #fff;
-    border-radius: 30px;
-    padding: 10px 30px;
-    font-weight: bold;
-}
+        .animate-fade-in-left {
+            animation: fadeInLeft 1s ease;
+        }
 
-/* Hover effect for images */
-.img-hover:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
+        .custom-button {
+            color: #fff;
+            background-color: transparent;
+            border-color: #fff;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-weight: bold;
+        }
 
-/* Link Styles */
-.link-heading {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-}
+        /* Hover effect for images */
+        .img-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
 
-.link-heading:hover {
-    text-decoration: underline;
-}
+        /* Link Styles */
+        .link-heading {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-/* Feature Section Styles */
-.feature {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+        .link-heading:hover {
+            text-decoration: underline;
+        }
 
-/* Membership Section Styles */
-.membership-button {
-    border: 1px solid #000;
-    background-color: transparent;
-    color: #000;
-    border-radius: 30px;
-    padding: 10px 30px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+        /* Feature Section Styles */
+        .feature {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.membership-button:hover {
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-}
+        /* Membership Section Styles */
+        .membership-button {
+            border: 1px solid #000;
+            background-color: transparent;
+            color: #000;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-/* Footer Styles */
-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 40px 0;
-}
+        .membership-button:hover {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+        }
 
-footer a.text-white {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        /* Footer Styles */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+        }
 
-footer a.text-white:hover {
-    color: #FFA500;
-    text-decoration: none;
-}
+        footer a.text-white {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a.text-white:hover {
+            color: #FFA500;
+            text-decoration: none;
+        }
     </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -143,7 +143,7 @@ footer a.text-white:hover {
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                @if (Auth::check()) <!-- Check if the user is logged in -->
+                @if (Auth::check())
                 <a class="navbar-brand" href="{{ url('/home') }}">Colabra</a>
                 @else
                 <a class="navbar-brand" href="{{ url('/') }}">Colabra</a>
@@ -155,25 +155,42 @@ footer a.text-white:hover {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- Add your left-side navigation links here if needed -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ml-auto"> <!-- Use ml-auto to move items to the right -->
                         <!-- Authentication Links -->
+
                         @guest
                         @if (Route::has('login') && !request()->is('login')) <!-- Check if not on the login page -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.login') }}">Admin Login</a>
+                        </li>
+                        
+
                         @endif
 
                         @if (Route::has('register') && !request()->is('register')) <!-- Check if not on the register page -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
+
+                       
                         @endif
                         @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
