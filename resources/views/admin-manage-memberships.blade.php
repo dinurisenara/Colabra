@@ -36,8 +36,8 @@
             <!-- Membership card 1 -->
             <div class="card text-center bg-light border-purple mb-3">
             <div class="card-body">
-                    <h5 class="card-title">Membership 2</h5>
-                    <p class="card-text">Description of Membership 2.</p>
+                    <h5 class="card-title">Membership 1</h5>
+                    <p class="card-text">Description of Membership 1.</p>
                 </div>
             </div>
 
@@ -50,22 +50,22 @@
 
             <div class="card text-center bg-light border-purple mb-3">
             <div class="card-body">
-                    <h5 class="card-title">Membership 2</h5>
-                    <p class="card-text">Description of Membership 2.</p>
+                    <h5 class="card-title">Membership 3</h5>
+                    <p class="card-text">Description of Membership 3.</p>
                 </div>
             </div>
 
             <div class="card text-center bg-light border-purple mb-3">
             <div class="card-body">
-                    <h5 class="card-title">Membership 2</h5>
-                    <p class="card-text">Description of Membership 2.</p>
+                    <h5 class="card-title">Membership 4</h5>
+                    <p class="card-text">Description of Membership 4.</p>
                 </div>
             </div>
 
             <div class="card text-center bg-light border-purple mb-3">
             <div class="card-body">
-                    <h5 class="card-title">Membership 2</h5>
-                    <p class="card-text">Description of Membership 2.</p>
+                    <h5 class="card-title">Membership 5</h5>
+                    <p class="card-text">Description of Membership 5.</p>
                 </div>
             </div>
 
