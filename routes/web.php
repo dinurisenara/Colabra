@@ -35,6 +35,9 @@ Route::view('admin/add-user', 'admin-add-user')->name('admin.add.user');
 Route::view('admin/manage-users', 'admin-manage-users')->name('admin.manage.users'); 
 Route::view('admin/user-profile-view', 'admin-user-profile-view')->name('admin.user.profile.view'); 
 
+
+Route::get('/create-user', 'App\Http\Controllers\UserController@create')->name('user.create');
+Route::post('/store-user', 'App\Http\Controllers\UserController@store') -> name('user.store');
 // Route::middleware(['auth', 'admin'])->group(function () {
 //     // Admin-only routes
 

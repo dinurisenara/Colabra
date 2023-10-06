@@ -8,8 +8,20 @@
                 <div class="card-header">
                     Add User
                 </div>
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
+
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('user.store') }}" method="post">
+                    @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" placeholder="Enter name">
@@ -30,8 +42,3 @@
     </div>
 </div>
 @endsection
-
-
-
-
-
