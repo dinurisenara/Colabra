@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +27,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::view('admin/login', 'auth.admin-login')->name('admin.login');
 
 Route::get('/admin/login', 'App\Http\Controllers\Auth\LoginController@showAdminLoginForm')->name('admin.login');
-Route::post('/admin/login', 'App\Http\Controllers\Auth\LoginController@adminLogin');
+Route::post('/admin/login', 'App\Http\Controllers\Auth\LoginController@adminLogin')->name('admin.login.submit');
+
+Route::view('admin/dashboard', 'admin-dashboard')->name('admin.dashboard');
+Route::view('admin/manage-memberships', 'admin-manage-memberships')->name('admin.manage.memberships');
+Route::view('admin/add-user', 'admin-add-user')->name('admin.add.user'); 
+Route::view('admin/manage-users', 'admin-manage-users')->name('admin.manage.users'); 
+Route::view('admin/user-profile-view', 'admin-user-profile-view')->name('admin.user.profile.view'); 
+
+// Route::middleware(['auth', 'admin'])->group(function () {
+//     // Admin-only routes
 
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    // Admin-only routes
-    Route::view('admin/dashboard', 'admin-dashboard')->name('admin.dashboard');
-
-});
+// });
