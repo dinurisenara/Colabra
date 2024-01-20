@@ -134,35 +134,7 @@
 
 
 
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Contact Information</h5>
-                    <p>123 Main Street, City</p>
-                    <p>Email: info@colabra.com</p>
-                    <p>Phone: +1 (123) 456-7890</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
 
-                        <li><a href="#" class="text-white">Memberships</a></li>
-                        <li><a href="#" class="text-white">Facilities</a></li>
-                        <li><a href="#" class="text-white">About</a></li>
-                        <li><a href="/contact" class="text-white">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Connect With Us</h5>
-                    <a href="#"><i class="fab fa-facebook-square fa-lg mr-2 text-white"></i></a>
-                    <a href="#"><i class="fab fa-twitter-square fa-lg mr-2 text-white"></i></a>
-                    <a href="#"><i class="fab fa-linkedin fa-lg mr-2 text-white"></i></a>
-                    <a href="#"><i class="fab fa-instagram-square fa-lg mr-2 text-white"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Smooth scrolling for anchor links

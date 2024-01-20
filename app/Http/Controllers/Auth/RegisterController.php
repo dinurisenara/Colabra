@@ -53,7 +53,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role'=> 'in:personal,company',
         ]);
+
+       
     }
 
     /**
@@ -64,11 +67,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $role = $data['userType'] == 'personal' ? 'personal' : 'company';
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => 'user', // Set the default role to 'user'
+            'role' => $role,
         ]);
+
+        
     }
 }

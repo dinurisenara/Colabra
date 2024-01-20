@@ -16,9 +16,9 @@
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                             @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
 
@@ -27,20 +27,27 @@
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
-
+                        <div class="mb-3">
+                            <label for="user_type" class="form-label">User type</label>
+                            <select class="form-select" id="userType" name="userType">
+                                <option value="personal">Personal Account</option>
+                                <option value="company">Company Account</option>
+                               
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ __('Password') }}</label>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                             @error('password')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
 
@@ -55,6 +62,7 @@
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
