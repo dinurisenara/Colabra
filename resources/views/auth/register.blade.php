@@ -34,10 +34,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="user_type" class="form-label">User type</label>
-                            <select class="form-select" id="userType" name="userType">
+                            <select class="form-select" id="customerType" name="customerType"> // changed   userType  to customerType
                                 <option value="personal">Personal Account</option>
-                                <option value="company">Company Account</option>
-                               
+                                <option value="business">Business Account</option> // changed company to business
+
                             </select>
                         </div>
                         <div class="mb-3">

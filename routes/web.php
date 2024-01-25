@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\membershipPlansController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\membershipPlansController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Livewire\UserProfile;
+
 
 
 /*
@@ -28,20 +30,42 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //  admin login route
 //Route::view('admin/login', 'auth.admin-login')->name('admin.login');
 
-Route::get('/admin/login', 'App\Http\Controllers\Auth\LoginController@showAdminLoginForm')->name('admin.login');
-Route::post('/admin/login', 'App\Http\Controllers\Auth\LoginController@adminLogin')->name('admin.login.submit');
+// admin routes
 
-Route::view('admin/dashboard', 'admin-dashboard')->name('admin.dashboard');
+use App\Http\Controllers\Admin\AdminController;
 
-Route::get('admin/users',  [UserController::class, 'adminAddUser'])->name('users');
-Route::get('admin/adduser', [UserController::class, 'create'])->name('admin.add.user');
-Route::post('admin/users', [UserController::class, 'store'])->name('admin.add.user.submit'); 
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+
+    // Login Routes (no auth middleware)
+    Route::view('/login', 'auth.admin-login')->name('login');
+    Route::post('/login', [AdminController::class, 'adminLogin'])->name('login.submit');
+
+    // Auth-protected Routes
+    Route::middleware(['auth'])->group(function () {
+        Route::view('/dashboard', 'admin.admin-dashboard')->name('dashboard');
+
+        Route::view('/users', 'users')->name('users');
+        Route::view('/adduser', 'admin.adminAddUser')->name('add.user');
+        Route::post('/users', [AdminController::class, 'store'])->name('add.user.submit');
+        Route::post('/users/{id}/update', [AdminController::class,'updateUser'])->name('update.user');
 
 
+        Route::get('/manageusers', [AdminController::class, 'manageUsers'])->name('manage.users');
+        Route::get('/user/{id}', [AdminController::class, 'viewUserProfile'])->name('user.profile.view');
 
-Route::get('admin/manageusers', [UserController::class, 'manageUsers'])->name('admin.manage.users'); 
-Route::get('admin/user/{id}',[UserController::class, 'viewUserProfile'] )->name('admin.user.profile.view'); 
+        Route::view('/memberships', 'admin.adminManagememberships')->name('manage.memberships');
+        //Route::post('/memberships', [AdminController::class, 'storeplan'])->name('store.memberships');
+        Route::get('/view-memberships', [AdminController::class, 'viewMemberships'])->name('view.memberships');
+        Route::get('/edit-membership/{id}', [AdminController::class, 'editMembership'])->name('edit.membership');
+        Route::get('/delete-membership/{id}', [AdminController::class, 'deleteMembership'])->name('delete.membership');
 
-Route::get('admin/memberships', [membershipPlansController::class, 'adminManageMemberships'])->name('admin.memberships');
-Route::get('admin/managememberships', [membershipPlansController::class, 'create'])->name('admin.manage.memberships');
-Route::post('admin/memberships',[membershipPlansController::class, 'store'])->name('admin.store.memberships');
+        Route::get('/admin/memberships/{id}/edit', [AdminController::class, 'editMembership'])
+            ->name('edit.membership');
+        Route::put('/admin/memberships/{id}', [AdminController::class, 'updateMembership'])
+            ->name('update.membership');
+
+
+    });
+});
+
+

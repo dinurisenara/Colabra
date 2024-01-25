@@ -35,6 +35,14 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                         </div>
+                        <div class="mb-3">
+                            <label for="user_type" class="form-label">User type</label>
+                            <select class="form-select" id="customerType" name="customerType">
+                                <option value="personal">Personal Account</option>
+                                <option value="business">Business Account</option>
+
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">Add User</button>
                     </form>
 

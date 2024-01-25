@@ -18,11 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+
+        // Changing the user model to include the role id and memberships
+        'role_id',
+        'customerType', // personal or business // nullable
         'name',
         'email',
         'password',
-        'role',
-        
+        'membership_id', // nullable
+
     ];
 
     /**
@@ -33,7 +37,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        
+
     ];
 
     /**
