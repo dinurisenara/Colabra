@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\membershipPlansController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\UserProfile;
+use App\Http\Controllers\ReservationController;
+use App\Livewire\ManageMemberships;
+use App\Http\Controllers\BookingsController;
 
 
 
@@ -63,6 +65,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
             ->name('edit.membership');
         Route::put('/admin/memberships/{id}', [AdminController::class, 'updateMembership'])
             ->name('update.membership');
+
+        Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+        Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
+        Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('reservations.update');
+        Route::post('/reservations/store', [ReservationController::class, 'store'])->name('reservations.store');
+        Route::get('/bookings', [BookingsController::class, 'index'])->name('bookings.index');
+
+        Route::post('/bookings/store', [BookingsController::class, 'store'])->name('bookings.store');
 
 
     });

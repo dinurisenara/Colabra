@@ -17,7 +17,12 @@
 
                         <div class="mb-3">
                             <label for="spaceType" class="form-label">Space Type:</label>
-                            <input wire:model="spaceType" type="text" class="form-control @error('spaceType') is-invalid @enderror" id="spaceType" required>
+                            <select name="spaceType" class="form-control @error('spaceType') is-invalid @enderror" id="spaceType" required>
+                                <option value="">Select a Space Type</option>
+                                @foreach($spaceTypes as $spaceType)
+                                    <option value="{{ $spaceType->id }}">{{ $spaceType->type }}</option>
+                                @endforeach
+                            </select>
                             @error('spaceType') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
 

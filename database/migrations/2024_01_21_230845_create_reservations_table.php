@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->foreignId('space_type_id')->constrained('space_types');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
+            $table->string('status')->default('pending');
 
 
 

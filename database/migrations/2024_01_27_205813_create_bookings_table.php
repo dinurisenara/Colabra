@@ -9,14 +9,11 @@ return new class extends Migration {
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('space_id')->constrained('spaces');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->decimal('price', 8, 2);
-
-
-
+            $table->string('user_id');
+            $table->string('space_id');
+            $table->dateTime('start_time')->default(now());
+            $table->dateTime('end_time')->default(now());
+            $table->decimal('price');
             $table->timestamps();
         });
     }

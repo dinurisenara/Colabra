@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('type');
             $table->integer('capacity');
             $table->decimal('hourly_rate');
+            $table->string('customer_type');
             $table->softDeletes();
             $table->timestamps();
         });

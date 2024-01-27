@@ -14,5 +14,6 @@ class Space_types extends Model
         'type',
         'capacity',
         'hourly_rate',
+        'customer_type',
     ];
 }

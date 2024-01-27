@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Membership_plans;
+use App\Models\Space_types;
 use Livewire\Component;
 
 /**
@@ -19,16 +20,17 @@ class ManageMemberships extends Component
 
     public function render()
     {
+        $spaceTypes= Space_types::all();
 
 
-        return view('livewire.manage-memberships');
+        return view('livewire.manage-memberships',compact('spaceTypes'));
     }
 
     public function addMembership()
     {
         $validatedData = $this->validate([
             'name' => 'required|string',
-            'spaceType' => 'required|string',
+            'spaceType' => 'required',
             'customerType' => 'required|string',
             'timePeriod' => 'required|string',
             'description' => 'nullable|string',

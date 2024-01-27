@@ -26,8 +26,9 @@
                 </a>
             </div>
         </div>
+
         <div class="col-md-6 col-lg-4 mb-3">
-            <a class="card bg-dark text-white text-center" href="{{route('admin.add.user')}}">
+            <a class="card bg-success text-white text-center" href="{{route('admin.add.user')}}">
                 <div class="card-body">
                     <h5 class="card-title">Add User</h5>
                     <p class="card-text">Add new members</p>
@@ -43,20 +44,21 @@
             </a>
         </div>
         <div class="col-md-6 col-lg-4 mb-3">
-            <div class="card bg-danger text-white text-center">
+            <a class="card bg-danger text-white text-center" href="{{route('admin.reservations.index')}}">
+
                 <div class="card-body">
                     <h5 class="card-title">Reservations</h5>
                     <p class="card-text">View and manage reservations</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-6 col-lg-4 mb-3">
-            <div class="card bg-info text-black text-center">
+            <a class="card bg-info text-black text-center" href="{{route('admin.bookings.index')}}">
                 <div class="card-body">
                     <h5 class="card-title">Bookings</h5>
                     <p class="card-text">Manage room and desk bookings</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
