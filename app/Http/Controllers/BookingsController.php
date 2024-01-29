@@ -19,7 +19,10 @@ class BookingsController extends Controller
     {
         $reservations = Reservations::all();
         $spaceTypes = Space_types::all();
-        return view('admin.admin-makebookings' , compact('reservations', 'spaceTypes'));
+        $bookings = Bookings::all();
+        $spaces = Spaces::all();
+
+        return view('admin.admin-makebookings' , compact('reservations', 'spaceTypes', 'bookings' , 'spaces'));
     }
 
     /**
@@ -39,12 +42,23 @@ class BookingsController extends Controller
 
 
         $user = User::where('name', $request->input('customerUsername'))->first();
-        $space = Spaces::where('type_id', $request->input('spaceType'))->first();
+        $space = Spaces::where('type_id', $request->input('spaceType'))
+            ->where('availability', 'Available')
+            ->first();
+        $bookings = Bookings::all();
+        $spaces = Spaces::all();
         $spaceType = Space_types::where('id', $request->input('spaceType'))->first();
         // Calculate price based on hourly rate and duration
         $startTime = new \DateTime($request->input('startTime'));
         $endTime = new \DateTime($request->input('endTime'));
         $hourlyRate = $spaceType->hourly_rate;
+
+
+        $space-> update([
+            'availability' => 'Unavailable',
+        ]);
+
+
 
         $durationInHours = $startTime->diff($endTime)->h + $startTime->diff($endTime)->days * 24;
         $totalPrice = $hourlyRate * $durationInHours;
@@ -70,7 +84,8 @@ class BookingsController extends Controller
             $booking->save();
 
 
-            return view('admin.admin-makebookings', compact('booking'));
+            return view('admin.admin-makebookings', compact('booking','bookings', 'spaces' ));
+
 
 
 
@@ -94,4 +109,5 @@ class BookingsController extends Controller
 
         return response()->json();
     }
+
 }

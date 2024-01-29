@@ -9,7 +9,8 @@ class Membership_plansController extends Controller
 {
     public function index()
     {
-        return Membership_plans::all();
+        $membership_plans = Membership_plans::all();
+        return view('customer.customer-memberships' , compact('membership_plans'));
     }
 
     public function store(Membership_plansRequest $request)

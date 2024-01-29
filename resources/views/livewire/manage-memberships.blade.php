@@ -17,10 +17,10 @@
 
                         <div class="mb-3">
                             <label for="spaceType" class="form-label">Space Type:</label>
-                            <select name="spaceType" class="form-control @error('spaceType') is-invalid @enderror" id="spaceType" required>
-                                <option value="">Select a Space Type</option>
-                                @foreach($spaceTypes as $spaceType)
-                                    <option value="{{ $spaceType->id }}">{{ $spaceType->type }}</option>
+                            <select wire:model="spaceType"  class="form-control @error('spaceType') is-invalid @enderror" id="spaceType" required>
+                                <option value="" >Select Space Type</option>
+                                @foreach($spaceTypes as $space)
+                                    <option  value="{{ $space->id }}">{{ $space->type }}</option>
                                 @endforeach
                             </select>
                             @error('spaceType') <div class="invalid-feedback">{{ $message }}</div> @enderror
@@ -29,7 +29,7 @@
                         <div class="mb-3">
                             <label for="customerType" class="form-label">Customer Type:</label>
                             <select wire:model="customerType" class="form-select @error('customerType') is-invalid @enderror" id="customerType" required>
-                                <option value="" disabled>Select Customer Type</option>
+                                <option value="" >Select Customer Type</option>
                                 <option value="business">Business</option>
                                 <option value="personal">Personal</option>
                             </select>

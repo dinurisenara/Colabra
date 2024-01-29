@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Spaces extends Model
 {
-    use SoftDeletes, HasFactory;
+    use  HasFactory;
 
     protected $fillable = [
         'name',
         'type_id',
+        'availability',
     ];
 }

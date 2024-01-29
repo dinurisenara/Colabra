@@ -47,6 +47,39 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+
+        <div class="container mt-4">
+            <h2>Booking Records</h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Username</th>
+                    <th>Space </th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Price</th>
+                    <th>Created At</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($bookings as $booking)
+                    <tr>
+                        <td>{{ $booking->id }}</td>
+                        <td>{{ $booking->customerUsername }}</td>
+
+                        <td>{{ $spaces->where('id', $booking->space_id)->first()->name ?? 'Unknown Space' }}</td>
+
+                        <td>{{ $booking->startTime }}</td>
+                        <td>{{ $booking->endTime }}</td>
+                        <td>{{ $booking->price }}</td>
+                        <td>{{ $booking->created_at }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
     </div>
 
     <!-- Add this script at the end -->

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\membershipPlansController;
+use App\Http\Controllers\Membership_plansController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -77,5 +78,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
 
     });
 });
+
+// user routes
+        Route::get('/memberships/view', [Membership_plansController::class , 'index'])->name('memberships.view');
 
 

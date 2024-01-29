@@ -31,7 +31,7 @@ class SpaceTypeSeeder extends Seeder
             'type' => 'Private Office ',
             'capacity' => 25,
             'hourly_rate' => 15.00,
-            'customer_type' => 'Personal',
+            'customer_type' => 'Business',
         ]);
 
         Space_types::create([

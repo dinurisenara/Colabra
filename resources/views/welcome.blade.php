@@ -35,24 +35,24 @@
     <section class="container mt-5" id="scrolled">
         <div class="row">
             <div class="col-md-4 mb-4">
-                <a href="#" class="image-link">
+                <a  class="image-link">
                     <img src="{{ asset('images/flexible.jpg') }}" alt="Image 1" class="img-fluid img-hover">
                 </a>
-                <h3 class="mt-3"><a href="#" class="link-heading">Flexible Workspaces</a></h3>
+                <h3 class="mt-3"><a  class="link-heading">Flexible Workspaces</a></h3>
                 <p>Our coworking space offers a variety of flexible workspaces, including private offices and dedicated desks.</p>
             </div>
             <div class="col-md-4 mb-4">
-                <a href="#" class="image-link">
+                <a  class="image-link">
                     <img src="{{ asset('images/desks.jpg') }}" alt="Image 2" class="img-fluid img-hover">
                 </a>
-                <h3 class="mt-3"><a href="#" class="link-heading">Collaboration Zones</a></h3>
+                <h3 class="mt-3"><a class="link-heading">Collaboration Zones</a></h3>
                 <p>Experience collaborative work environments with breakout spaces and meeting rooms.</p>
             </div>
             <div class="col-md-4 mb-4">
-                <a href="#" class="image-link">
+                <a  class="image-link">
                     <img src="{{ asset('images/virtu.jpg') }}" alt="Image 3" class="img-fluid img-hover">
                 </a>
-                <h3 class="mt-3"><a href="#" class="link-heading">Virtual Offices</a></h3>
+                <h3 class="mt-3"><a  class="link-heading">Virtual Offices</a></h3>
                 <p>Get the benefits of a physical office address with our virtual office solutions.</p>
             </div>
         </div>
@@ -63,7 +63,7 @@
             <div class="col-md-3">
                 <div class="feature text-center">
                     <h3 style="font-size: 18px; color: #333; margin-top: 20px;">Flexibility</h3>
-                    <img src="icon1.png" alt="Flexibility Icon" style="width: 50px; height: 50px;">
+
                     <p style="font-size: 14px; color: #555;">
                         Need a bigger space? We offer expansion clauses, allowing you to move to a bigger space during your membership term.
                     </p>
@@ -72,7 +72,7 @@
             <div class="col-md-3">
                 <div class="feature text-center">
                     <h3 style="font-size: 18px; color: #333; margin-top: 20px;">Luxury</h3>
-                    <img src="icon2.png" alt="Luxury Icon" style="width: 50px; height: 50px;">
+
                     <p style="font-size: 14px; color: #555;">
                         Kings Club is designed by world-class designers and is complete with high-end amenities and custom finishes.
                     </p>
@@ -81,7 +81,7 @@
             <div class="col-md-3">
                 <div class="feature text-center">
                     <h3 style="font-size: 18px; color: #333; margin-top: 20px;">Community</h3>
-                    <img src="icon3.png" alt="Community Icon" style="width: 50px; height: 50px;">
+
                     <p style="font-size: 14px; color: #555;">
                         Meet, connect, and grow with your Kings Club community through regular networking and lunch-and-learn events.
                     </p>
@@ -90,7 +90,7 @@
             <div class="col-md-3">
                 <div class="feature text-center">
                     <h3 style="font-size: 18px; color: #333; margin-top: 20px;">Support</h3>
-                    <img src="icon4.png" alt="Support Icon" style="width: 50px; height: 50px;">
+
                     <p style="font-size: 14px; color: #555;">
                         We offer unparalleled business support, from phone answering to administration assistance.
                     </p>

@@ -9,7 +9,7 @@
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+nbE6jFp5s1Um4c2hpgpJGwzqqX8qbWf5Ow5v9w5FlB1FjHI" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="/resources/css/app.css">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,6 +29,7 @@
             position: relative;
             overflow: hidden;
             height: 100vh;
+
         }
 
         .background-image {
@@ -134,6 +135,10 @@
             color: #FFA500;
             text-decoration: none;
         }
+
+
+
+
     </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 

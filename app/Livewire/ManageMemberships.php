@@ -18,7 +18,7 @@ class ManageMemberships extends Component
     public $description;
     public $price;
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $spaceTypes= Space_types::all();
 
@@ -37,15 +37,24 @@ class ManageMemberships extends Component
             'price' => 'required|numeric',
         ]);
 
-        Membership_plans::create([
-            'plan_name' => $this->name,
-            'space_type' => $this->spaceType,
-            'customer_type' => $this->customerType,
-            'time_period' => $this->timePeriod,
-            'description' => $this->description,
-            'price' => $this->price,
+//        Membership_plans::create([
+//            'plan_name' =>$validatedData->name,
+//            'space_type' => $validatedData->spaceType,
+//            'customer_type' => $validatedData->customerType,
+//            'time_period' => $validatedData->timePeriod,
+//            'description' => $validatedData->description,
+//            'price' => $validatedData->price,
+//
+//        ]);
+        $plan = new Membership_plans();
+        $plan->plan_name = $this->name;
+        $plan->space_type = $this->spaceType;
+        $plan->customer_type = $this->customerType;
+        $plan->time_period = $this->timePeriod;
+        $plan->description = $this->description;
+        $plan->price = $this->price;
+        $plan->save();
 
-        ]);
 
 
 

@@ -13,13 +13,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Membership Plans</a>
+                            <a class="nav-link" href="{{ route('memberships.view') }}">Membership Plans</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Book Now</a>
+                            <a class="nav-link" href="#">Make a reservation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Facilities</a>
+                            <a class="nav-link" href="#">Spaces</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
