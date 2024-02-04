@@ -16,13 +16,13 @@
                             <a class="nav-link" href="{{ route('memberships.view') }}">Membership Plans</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Make a reservation</a>
+                            <a class="nav-link" href="{{route('reservation.view')}}">Make a reservation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Spaces</a>
+                            <a class="nav-link" href="{{route('spaces.view')}}">Spaces</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
+                            <a class="nav-link" href="{{route('contact.index')}}">Contact Us</a>
                         </li>
                     </ul>
 
@@ -37,9 +37,7 @@
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.login') }}">Admin Login</a>
-                        </li>
+
 
 
                         @endif
@@ -52,14 +50,28 @@
 
                         @endif
                         @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ Auth::user()->name }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
+
+
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-transparent dropdown-toggle" type="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ Auth::user()->name }}
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                        <a class="dropdown-item" href="{{ route('profile.show') }}">View Profile</a>
+                                        <a class="dropdown-item" href="{{route('reservation.history')}}">View My Reservations</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            {{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">--}}
+{{--                                {{ __('Logout') }}--}}
+{{--                            </a>--}}
+{{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+{{--                                @csrf--}}
+{{--                            </form>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
@@ -72,4 +84,11 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+    <!-- Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</nav>
+

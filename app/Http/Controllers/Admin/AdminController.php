@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Membership_plans;
 use App\Models\membershipPlans;
 use App\Models\User;
@@ -144,6 +145,13 @@ class AdminController extends Controller
         ]);
 
         return redirect()->route('admin.view.memberships')->with('success', 'Membership updated successfully.');
+    }
+
+    public function viewMessages()
+    {
+        $messages = Contact::latest()->get();
+
+        return view('admin.messages', compact('messages'));
     }
 
 

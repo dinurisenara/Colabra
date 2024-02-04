@@ -1,14 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\membershipPlansController;
+use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Membership_plansController;
+use App\Http\Controllers\Space_typesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
 use App\Livewire\ManageMemberships;
 use App\Http\Controllers\BookingsController;
-
 
 
 /*
@@ -50,7 +52,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         Route::view('/users', 'users')->name('users');
         Route::view('/adduser', 'admin.adminAddUser')->name('add.user');
         Route::post('/users', [AdminController::class, 'store'])->name('add.user.submit');
-        Route::post('/users/{id}/update', [AdminController::class,'updateUser'])->name('update.user');
+        Route::post('/users/{id}/update', [AdminController::class, 'updateUser'])->name('update.user');
 
 
         Route::get('/manageusers', [AdminController::class, 'manageUsers'])->name('manage.users');
@@ -74,12 +76,28 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         Route::get('/bookings', [BookingsController::class, 'index'])->name('bookings.index');
 
         Route::post('/bookings/store', [BookingsController::class, 'store'])->name('bookings.store');
+        Route::get('/admin/messages', [AdminController::class, 'viewMessages'])->name('messages');
+        Route::get('/admin/analytics', [AnalyticsController::class, 'index'])->name('admin.analytics');
 
 
     });
 });
 
 // user routes
-        Route::get('/memberships/view', [Membership_plansController::class , 'index'])->name('memberships.view');
+Route::get('/memberships/view', [Membership_plansController::class, 'index'])->name('memberships.view');
+Route::get('/make-reservation', [ReservationController::class, 'userview'])->name('reservation.view')->middleware('auth');;
+Route::get('/view-spaces', [Space_typesController::class, 'index'])->name('spaces.view');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/profile', [UserController::class,'showProfile'])->name('profile.show');
+Route::get('/profile/edit', [UserController::class,'editProfile'])->name('profile.edit');
+Route::put('/profile', [UserController::class,'updateProfile'])->name('profile.update');
+Route::delete('/profile', [UserController::class,'deleteProfile'])->name('profile.delete');
+Route::get('/reservation/history', [ReservationController::class, 'showReservationHistory'])
+    ->name('reservation.history')
+    ->middleware('auth');
+
 
 

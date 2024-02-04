@@ -60,6 +60,22 @@
                 </div>
             </a>
         </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a class="card  bg-secondary text-black  text-white text-center" href="{{route('admin.messages')}}">
+                <div class="card-body">
+                    <h5 class="card-title">Messeges</h5>
+                    <p class="card-text">Manage room and desk bookings</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a class="card bg-success text-black text-center" href="{{route('admin.admin.analytics')}}">
+                <div class="card-body">
+                    <h5 class="card-title">Analytics</h5>
+                    <p class="card-text">Manage room and desk bookings</p>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 

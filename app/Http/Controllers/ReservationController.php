@@ -19,6 +19,11 @@ class ReservationController extends Controller
 
         return view('reservations.index', compact('reservations', 'spaceTypes'));
     }
+    public function userview(){
+        $reservations = Reservations::all();
+        $spaceTypes = Space_types::all();
+        return view('reservations.make-reservation', compact('reservations', 'spaceTypes'));
+    }
 
     public function edit($id)
     {
@@ -55,7 +60,7 @@ class ReservationController extends Controller
             'space_type_id' => 'required',
             'start_time' => 'required|date',
             'end_time' => 'required|date|after:start_time',
-            'status' => 'required',
+            'status' => 'string|in:pending,confirmed,completed',
         ]);
         $user = User::where('name', $request->input('username'))->first();
         $spaceType_customerType = Space_types::where('type', $request->input('space_type'))->first();
@@ -77,6 +82,8 @@ class ReservationController extends Controller
                 ->with('error', 'Reservation not created successfully');
         }
 
+
+
 //        // Create a new reservation
 //        Reservations::create($request[
 //            ]);
@@ -84,6 +91,15 @@ class ReservationController extends Controller
         // Redirect back to the reservations page
 
     }
+
+    public function showReservationHistory()
+    {
+        $reservations = Reservations::where('user_id', auth()->id())->get();
+        $spaceTypes = Space_types::all();
+
+        return view('customer.reservation_history', ['reservations' => $reservations , 'spaceTypes' => $spaceTypes]);
+    }
+
 
 
 

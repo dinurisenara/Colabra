@@ -9,10 +9,11 @@ use App\Models\Space_types;
 class Space_typesController extends Controller
 {
     public function index()
-    {
-        $this->authorize('viewAny', Space_types::class);
+    {  $space_types = Space_types::all();
+        $spaces = Space_types::all();
 
-        return Space_typesResource::collection(Space_types::all());
+        return
+       view('customer.view-spaces', compact('spaces' , 'space_types'));
     }
 
     public function store(Space_typesRequest $request)
