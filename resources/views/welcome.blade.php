@@ -111,9 +111,10 @@
         </div>
         <div class="row mt-4">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
-                <button class="btn btn-primary btn-lg rounded-pill" style="border-color: black; background-color: transparent; color: black;">
+               <a href="{{route('memberships.view')}}"> <button class="btn btn-primary btn-lg rounded-pill" style="border-color: black; background-color: transparent; color: black;">
                     Membership Plans <span>&rarr;</span>
                 </button>
+               </a>
             </div>
             <div class="col-md-6">
                 <img src="{{ asset('images/garden.jpg')}}" alt="Workspace Image 2" class="img-fluid">

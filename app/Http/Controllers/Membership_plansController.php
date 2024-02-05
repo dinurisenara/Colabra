@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Membership_plansRequest;
 use App\Models\Membership_plans;
+use App\Models\Space_types;
 
 class Membership_plansController extends Controller
 {
     public function index()
     {
         $membership_plans = Membership_plans::all();
-        return view('customer.customer-memberships' , compact('membership_plans'));
+        $spaceTypes = Space_types::all();
+        return view('customer.customer-memberships' , compact('membership_plans' , 'spaceTypes'));
     }
 
     public function store(Membership_plansRequest $request)

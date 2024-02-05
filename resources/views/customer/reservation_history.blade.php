@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pb-5 mb-5 mt-5 pt-5" >
         <h2>Reservation History</h2>
 
         @if(count($reservations) > 0)

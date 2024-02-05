@@ -39,6 +39,9 @@ class UserController extends Controller
     public function deleteProfile()
     {
         $user = Auth::user();
+        if ($user->id = 1) {
+            return redirect()->route('profile.show')->with('error', 'You are not allowed to delete this profile.');
+        }
         $user->delete();
 
         return redirect('/')->with('success', 'Profile deleted successfully.');
